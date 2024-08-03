@@ -5,7 +5,7 @@
 
 ### Установка
 Для установки и запуска проекта выполните следующие шаги:
-1. git clone 
+1. git clone https://github.com/koreicnurs/mui-table.git
 2. cd mui-table
 3. npm install
 4. npm start
@@ -21,6 +21,7 @@
 * Поиск по таблице
 
 ### Проект развернут на Netlify:
+https://main--mui-table-simple-app.netlify.app/
 
 ### Используемые технологии
 * React
