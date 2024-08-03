@@ -9,7 +9,7 @@ const DataTable = () => {
     const [open, setOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState('');
     const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem('darkMode') || 'false'));
-    const [tableState, setTableState] = useState(JSON.parse(localStorage.getItem('tableState') || '{}'));
+    const [tableState] = useState(JSON.parse(localStorage.getItem('tableState') || '{}'));
     const [searchText, setSearchText] = useState('');
     const [filteredRows, setFilteredRows] = useState([]);
 
@@ -18,8 +18,8 @@ const DataTable = () => {
             .then(response => {
                 const formattedData = response.data.map(item => ({
                     id: item.id,
-                    image: item.thumbnailUrl, // Small image
-                    largeImage: item.url, // Large image
+                    image: item.thumbnailUrl,
+                    largeImage: item.url,
                     description: item.title,
                     date: new Date().toISOString().split('T')[0],
                     number: item.id
@@ -42,10 +42,6 @@ const DataTable = () => {
             mode: darkMode ? 'dark' : 'light',
         },
     });
-
-    const handleRowClick = (params) => {
-        // Placeholder for row click behavior if needed
-    };
 
     const handleImageClick = (largeImage) => {
         setSelectedImage(largeImage);
@@ -156,7 +152,6 @@ const DataTable = () => {
                     columns={columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
-                    onRowClick={handleRowClick}
                     autoHeight
                     getRowHeight={() => 'auto'}
                     initialState={tableState}
